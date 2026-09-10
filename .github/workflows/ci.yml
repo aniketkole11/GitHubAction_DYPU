@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   test:
@@ -25,12 +27,3 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-      - name: Build React Application
-        run: npm run build
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-build
-          path: dist/
